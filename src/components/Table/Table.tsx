@@ -1,55 +1,78 @@
 /* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable @typescript-eslint/no-var-requires */
 
+import { useState } from 'react';
 import users from '../../api/users';
 import 'bulma/css/bulma.min.css';
+import Options from '../Options';
 
 const more = require('../../images/more.png');
 
 export const Table: React.FC = () => {
+  const [selectedId, setSelectedId] = useState<number | null>(null);
+
+  const handleModal = (id: number) => {
+    setSelectedId(id);
+  };
+
+  const tableStyles = {
+    border: '1px solid #EAF2FF',
+    boxShadow: '0px 4px 20px 0px rgba(4, 20, 32, 0.1)',
+  };
+
+  const headStyles = {
+    color: '#ADB5BD',
+    fontWeight: 500,
+  };
+
   return (
     <div className="container">
-      <table className="table is-fullwidth">
+      <table
+        className="table is-fullwidth"
+        style={tableStyles}
+      >
         <thead>
           <tr>
             <th />
-            <th
-              style={{ color: '#ADB5BD', fontWeight: 500 }}
-            >
+            <th style={headStyles}>
               Назва
             </th>
-            <th
-              style={{ color: '#ADB5BD', fontWeight: 500 }}
-            >
+            <th style={headStyles}>
               URL
             </th>
-            <th
-              style={{ color: '#ADB5BD', fontWeight: 500 }}
-            >
+            <th style={headStyles}>
               Автор
             </th>
-            <th
-              style={{ color: '#ADB5BD', fontWeight: 500 }}
-            >
+            <th style={headStyles}>
               Створено
             </th>
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
+          {users.map(({
+            id, name, url, author, date, time,
+          }) => (
             <tr>
               <th>
-                <span style={{ cursor: 'pointer' }}>
+                {selectedId === id
+                  && (
+                    <Options />
+                  )}
+                <span
+                  style={{ cursor: 'pointer' }}
+                  onClick={() => handleModal(id)}
+                  role="presentation"
+                >
                   <img src={more} alt="more" />
                 </span>
               </th>
-              <th style={{ fontWeight: 500 }}>{user.name}</th>
-              <th style={{ fontWeight: 400 }}>{user.url}</th>
-              <th style={{ fontWeight: 400 }}>{user.author}</th>
+              <th style={{ fontWeight: 500 }}>{name}</th>
+              <th style={{ fontWeight: 400 }}>{url}</th>
+              <th style={{ fontWeight: 400 }}>{author}</th>
               <th style={{ fontWeight: 400 }}>
-                {user.date}
+                {date}
                 <br />
-                {user.time}
+                {time}
               </th>
             </tr>
           ))}

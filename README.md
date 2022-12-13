@@ -7,5 +7,5 @@ Technologies used:
 - React
 - Typescript
 - JavaScript
-- SCSS
+- SCSS, Bulma
 - Figma
