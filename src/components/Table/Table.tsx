@@ -3,13 +3,33 @@ import { useState } from 'react';
 import data from '../../api/users';
 import 'bulma/css/bulma.min.css';
 import Options from '../Options';
+import Pagination from '../Pagination';
 
 const more = require('../../images/more.png');
 
 export const Table: React.FC = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [usersPerPage] = useState(6);
+  const indexOfLastPost = currentPage * usersPerPage;
+  const indexOfFirstPost = indexOfLastPost - usersPerPage;
+  const visibleUsers = data.slice(indexOfFirstPost, indexOfLastPost);
 
-  const users = [...data];
+  const previousPage = () => {
+    if (currentPage !== 1) {
+      setCurrentPage(currentPage - 1);
+    }
+  };
+
+  const nextPage = () => {
+    if (currentPage !== Math.ceil(data.length / usersPerPage)) {
+      setCurrentPage(currentPage + 1);
+    }
+  };
+
+  const paginate = (pageNumber: number) => {
+    setCurrentPage(pageNumber);
+  };
 
   const handleModal = (id: number) => {
     setSelectedId(id);
@@ -49,7 +69,7 @@ export const Table: React.FC = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map(({
+          {visibleUsers.map(({
             id, name, url, author, date, time,
           }) => (
             <tr>
@@ -78,6 +98,13 @@ export const Table: React.FC = () => {
           ))}
         </tbody>
       </table>
+      <Pagination
+        usersPerPage={usersPerPage}
+        totalUsers={data.length}
+        paginate={paginate}
+        previousPage={previousPage}
+        nextPage={nextPage}
+      />
     </div>
   );
 };
