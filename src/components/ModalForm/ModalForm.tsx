@@ -82,8 +82,8 @@ export const ModalForm: React.FC = () => {
                 required
               >
                 <option className={styles.form__input}>Оберіть групу</option>
-                <option className={styles.form__input}>Group 1</option>
-                <option className={styles.form__input}>Group 2</option>
+                <option className={styles.form__input}>Адміністратори</option>
+                <option className={styles.form__input}>Клієнти</option>
               </select>
             </label>
 
@@ -139,7 +139,8 @@ export const ModalForm: React.FC = () => {
               >
                 <option>Оберіть мову</option>
                 <option>Українська</option>
-                <option>Англійська</option>
+                <option>English</option>
+                <option>Français</option>
               </select>
             </label>
             <label
