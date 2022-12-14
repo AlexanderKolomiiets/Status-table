@@ -1,16 +1,16 @@
 {
   "files": {
     "main.css": "/OblikSoft/static/css/main.3dcef1bb.css",
-    "main.js": "/OblikSoft/static/js/main.144355bd.js",
+    "main.js": "/OblikSoft/static/js/main.892beff6.js",
     "static/media/IBMPlexSans-LightItalic.ttf": "/OblikSoft/static/media/IBMPlexSans-LightItalic.d729101987e9ad868d49.ttf",
     "static/media/IBMPlexSans-Medium.ttf": "/OblikSoft/static/media/IBMPlexSans-Medium.56fb541cbbc5462f1c33.ttf",
     "static/media/IBMPlexSans-Regular.ttf": "/OblikSoft/static/media/IBMPlexSans-Regular.d77342fdcbcb6b3ce1b5.ttf",
     "index.html": "/OblikSoft/index.html",
     "main.3dcef1bb.css.map": "/OblikSoft/static/css/main.3dcef1bb.css.map",
-    "main.144355bd.js.map": "/OblikSoft/static/js/main.144355bd.js.map"
+    "main.892beff6.js.map": "/OblikSoft/static/js/main.892beff6.js.map"
   },
   "entrypoints": [
     "static/css/main.3dcef1bb.css",
-    "static/js/main.144355bd.js"
+    "static/js/main.892beff6.js"
   ]
 }
