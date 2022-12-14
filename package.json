@@ -1,7 +1,7 @@
 {
   "name": "obliksoft-test",
   "version": "0.1.0",
-  "homepage": "https://alexanderkolomiiets.github.io/OblikSoft/",
+  "homepage": "https://alexanderkolomiiets.github.io/OblikSoft",
   "dependencies": {
     "@mate-academy/students-ts-config": "0.0.4",
     "@mate-academy/stylelint-config": "0.0.9",
@@ -11,7 +11,6 @@
     "@types/react": "^17.0.4",
     "@types/react-dom": "^17.0.3",
     "bulma": "^0.9.4",
-    "gh-pages": "^4.0.0",
     "node-sass": "^8.0.0",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.0",
@@ -26,7 +25,9 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "eslintConfig": {
     "extends": [
@@ -48,6 +49,7 @@
   },
   "devDependencies": {
     "@mate-academy/eslint-config-react-typescript": "^1.0.11",
+    "gh-pages": "^4.0.0",
     "typescript-plugin-css-modules": "^4.1.1"
   }
 }

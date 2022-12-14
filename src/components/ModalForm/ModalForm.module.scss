@@ -1,66 +1,69 @@
-.form {
+.modal {
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
+  font-size: 14px;
+  font-weight: 500;
   background: #f9faff;
 }
 
-.add {
+.form {
   background: #fff;
   box-shadow: 0px 4px 30px 0px rgba(4, 20, 32, 0.1);
-  font-size: 14px;
-  font-weight: 500;
   line-height: 24px;
   border-radius: 4px;
 
   &__header {
-    border-bottom: 1px solid rgba(234, 242, 255, 1);
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 48px;
+    height: 50px;
+    border-bottom: 1px solid #eaf2ff;
+  }
+
+  &__label {
+    font-size: 12px;
+  }
+
+  &__input {
+    height: 40px;
+    width: 100%;
+    padding: 0 12px 0;
+    border-radius: 4px;
+    border: 1px solid #eaf2ff;
+  }
+
+  &__input::placeholder {
+    font-style: italic;
+    font-weight: 300;
+    color: #adb5bd;
+  }
+
+  &__button {
+    font-weight: 500;
+    color: #2c7dfa;
+    border: 1px solid #2c7dfa;
+    transition: 0.3s background;
+  }
+
+  &__button:hover {
+    background: #CFE2FF;
+    color: #2c7dfa;
+    border: 1px solid #2c7dfa;
   }
 }
 
-.header {
-  &__name {
-    display: flex;
-  }
-
-  &__plus {
-    margin: 0 17px;
-    font-size: 24px;
-    color: #2C7DFA;
-  }
-}
-
-.main {
-  display: flex;
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
   gap: 22px;
-  padding: 20px;
+  padding: 10px 20px 20px 12px;
 
   &__column {
     display: flex;
     flex-direction: column;
     gap: 7px;
   }
-}
-
-.label {
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.inputCustom {
-  height: 40px;
-  width: 100%;
-  padding: 0 12px 0;
-  border-radius: 4px;
-  border: 1px solid rgba(234, 242, 255, 1);
-}
-
-.inputCustom::placeholder {
-  font-style: italic;
 }
 

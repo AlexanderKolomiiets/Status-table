@@ -1,8 +1,6 @@
-/* eslint-disable jsx-a11y/control-has-associated-label */
 /* eslint-disable @typescript-eslint/no-var-requires */
-
 import { useState } from 'react';
-import users from '../../api/users';
+import data from '../../api/users';
 import 'bulma/css/bulma.min.css';
 import Options from '../Options';
 
@@ -11,13 +9,15 @@ const more = require('../../images/more.png');
 export const Table: React.FC = () => {
   const [selectedId, setSelectedId] = useState<number | null>(null);
 
+  const users = [...data];
+
   const handleModal = (id: number) => {
     setSelectedId(id);
   };
 
   const tableStyles = {
     border: '1px solid #EAF2FF',
-    boxShadow: '0px 4px 20px 0px rgba(4, 20, 32, 0.1)',
+    boxShadow: '0px 4px 20px 0px #eaf2ff',
   };
 
   const headStyles = {
@@ -33,7 +33,7 @@ export const Table: React.FC = () => {
       >
         <thead>
           <tr>
-            <th />
+            <th aria-label="more-column" />
             <th style={headStyles}>
               Назва
             </th>

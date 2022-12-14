@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-
 import { useNavigate } from 'react-router-dom';
 import styles from './Options.module.scss';
 

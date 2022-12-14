@@ -1,10 +1,12 @@
-/* eslint-disable jsx-a11y/label-has-associated-control */
+/* eslint-disable @typescript-eslint/no-var-requires */
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import PhoneInput from 'react-phone-input-2';
 import styles from './ModalForm.module.scss';
 import 'react-phone-input-2/lib/style.css';
 import 'bulma/css/bulma.min.css';
+
+const cross = require('../../images/cross.png');
 
 export const ModalForm: React.FC = () => {
   const [title, setTitle] = useState('');
@@ -20,145 +22,134 @@ export const ModalForm: React.FC = () => {
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setTitle('');
-    setPhone('');
-    setGroup('');
-    setName('');
-    setEmail('');
-    setField('');
-    setLang('');
-    setFieldValue('');
     navigate('/');
   };
 
   return (
-    <div className={styles.form}>
-      <div className={styles.add}>
-        <header className={`${styles.add__header} ${styles.header}`}>
-          <div className={styles.header__name}>
-            <p className={styles.header__plus}>+</p>
+    <div className={styles.modal}>
+      <div className={styles.form}>
+        <header className={styles.form__header}>
+          <div style={{ display: 'flex' }}>
+            <img src={cross} alt="delete" style={{ margin: '0 12px' }} />
             Редагувати сутність
           </div>
           <button
+            aria-label="delete-button"
             type="submit"
             onClick={() => navigate('/')}
             className="delete"
             style={{ marginRight: '20px' }}
-          >
-            X
-          </button>
+          />
         </header>
-        <form className={styles.main} onSubmit={handleSubmit}>
-          <div className={styles.main__column}>
-            <label className={styles.label} htmlFor="title">
+        <form className={styles.grid} onSubmit={handleSubmit}>
+          <div className={styles.grid__column}>
+            <label className={styles.form__label} htmlFor="title">
               Назва
               <input
                 type="text"
                 placeholder="Статус посилки"
                 id="title"
-                className={styles.inputCustom}
+                className={styles.form__input}
                 value={title}
                 onChange={(event) => setTitle(event.target.value)}
                 required
               />
             </label>
 
-            <label className={styles.label}>
+            <span className={styles.form__label}>
               Номер телефону
               <PhoneInput
                 country="ua"
+                placeholder="1 (999) 999-9999"
                 defaultMask="(...) ...-...."
-                value={phone}
-                onChange={() => setPhone(phone)}
                 inputStyle={{
-                  border: '1px solid rgba(234, 242, 255, 1)',
+                  border: '1px solid #eaf2ff',
                   width: '275px',
                   height: '40px',
                 }}
+                value={phone}
+                onChange={() => setPhone(phone)}
               />
-            </label>
+            </span>
 
-            <label className={styles.label} htmlFor="group">
+            <label className={styles.form__label} htmlFor="group">
               Група користувачів
-              <div className={styles.select} id="group">
-                <select
-                  value={group}
-                  className={styles.inputCustom}
-                  onChange={(event) => setGroup(event.target.value)}
-                  required
-                >
-                  <option className={styles.inputCustom}>Оберіть групу</option>
-                  <option className={styles.inputCustom}>Group 1</option>
-                  <option className={styles.inputCustom}>Group 2</option>
-                </select>
-              </div>
+              <select
+                value={group}
+                id="group"
+                className={styles.form__input}
+                onChange={(event) => setGroup(event.target.value)}
+                required
+              >
+                <option className={styles.form__input}>Оберіть групу</option>
+                <option className={styles.form__input}>Group 1</option>
+                <option className={styles.form__input}>Group 2</option>
+              </select>
             </label>
 
-            <label className={styles.label} htmlFor="field">
+            <label className={styles.form__label} htmlFor="field">
               Додати нове поле
-              <div className={styles.select} id="field">
-                <select
-                  className={styles.inputCustom}
-                  value={field}
-                  onChange={(event) => setField(event.target.value)}
-                  required
-                >
-                  <option>заголовок</option>
-                  <option>текст</option>
-                  <option>текст</option>
-                  <option>текст</option>
-                </select>
-              </div>
+              <select
+                className={styles.form__input}
+                id="field"
+                value={field}
+                onChange={(event) => setField(event.target.value)}
+                required
+              >
+                <option>Заголовок</option>
+                <option>Текст</option>
+                <option>Текст</option>
+                <option>Текст</option>
+              </select>
             </label>
           </div>
-          <div className={styles.main__column}>
-            <label className={styles.label} htmlFor="name">
+          <div className={styles.grid__column}>
+            <label className={styles.form__label} htmlFor="name">
               Ім&#39;я та фамілія
               <input
                 type="text"
                 placeholder="Через пробіл"
                 id="name"
-                className={styles.inputCustom}
+                className={styles.form__input}
                 value={name}
                 onChange={(event) => setName(event.target.value)}
                 required
               />
             </label>
-            <label className={styles.label} htmlFor="email">
+            <label className={styles.form__label} htmlFor="email">
               Email
               <input
                 type="email"
                 placeholder="example.com"
                 id="email"
-                className={styles.inputCustom}
+                className={styles.form__input}
                 value={email}
                 onChange={(event) => setEmail(event.target.value)}
                 required
               />
             </label>
-            <label className={styles.label} htmlFor="lang">
+            <label className={styles.form__label} htmlFor="lang">
               Мова
-              <div className={styles.select} id="lang">
-                <select
-                  className={styles.inputCustom}
-                  value={lang}
-                  onChange={(event) => setLang(event.target.value)}
-                  required
-                >
-                  <option>Оберіть мову</option>
-                  <option>Українська</option>
-                  <option>Англійська</option>
-                </select>
-              </div>
+              <select
+                className={styles.form__input}
+                id="lang"
+                value={lang}
+                onChange={(event) => setLang(event.target.value)}
+                required
+              >
+                <option>Оберіть мову</option>
+                <option>Українська</option>
+                <option>Англійська</option>
+              </select>
             </label>
             <label
-              className={styles.label}
+              className={styles.form__label}
               htmlFor="fieldValue"
-              style={{ marginBottom: '100px' }}
+              style={{ marginBottom: '120px' }}
             >
               Значення поля
               <input
-                className={styles.inputCustom}
+                className={styles.form__input}
                 placeholder="Введіть значення"
                 id="fieldValue"
                 type="text"
@@ -168,9 +159,8 @@ export const ModalForm: React.FC = () => {
               />
             </label>
             <button
-              className={`${styles.buttonCustom} button is-info is-outlined`}
+              className={`${styles.form__button} button is-outlined`}
               type="submit"
-              // disabled={!allInput}
             >
               Додати користувача
             </button>
