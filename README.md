@@ -1,6 +1,6 @@
 # OblikSoft
 
-- [PREVIEW LINK](https://alexanderkolomiiets.github.io/OblikSoft/)
+- [PREVIEW LINK](https://alexanderkolomiiets.github.io/Status-table/)
 
 Technologies used:
 
