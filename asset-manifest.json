@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/OblikSoft/static/css/main.fe597690.css",
-    "main.js": "/OblikSoft/static/js/main.12f7b448.js",
-    "static/media/IBMPlexSans-LightItalic.ttf": "/OblikSoft/static/media/IBMPlexSans-LightItalic.d729101987e9ad868d49.ttf",
-    "static/media/IBMPlexSans-Medium.ttf": "/OblikSoft/static/media/IBMPlexSans-Medium.56fb541cbbc5462f1c33.ttf",
-    "static/media/IBMPlexSans-Regular.ttf": "/OblikSoft/static/media/IBMPlexSans-Regular.d77342fdcbcb6b3ce1b5.ttf",
-    "index.html": "/OblikSoft/index.html",
-    "main.fe597690.css.map": "/OblikSoft/static/css/main.fe597690.css.map",
-    "main.12f7b448.js.map": "/OblikSoft/static/js/main.12f7b448.js.map"
+    "main.css": "./static/css/main.56748883.css",
+    "main.js": "./static/js/main.12f7b448.js",
+    "static/media/IBMPlexSans-LightItalic.ttf": "./static/media/IBMPlexSans-LightItalic.d729101987e9ad868d49.ttf",
+    "static/media/IBMPlexSans-Medium.ttf": "./static/media/IBMPlexSans-Medium.56fb541cbbc5462f1c33.ttf",
+    "static/media/IBMPlexSans-Regular.ttf": "./static/media/IBMPlexSans-Regular.d77342fdcbcb6b3ce1b5.ttf",
+    "index.html": "./index.html",
+    "main.56748883.css.map": "./static/css/main.56748883.css.map",
+    "main.12f7b448.js.map": "./static/js/main.12f7b448.js.map"
   },
   "entrypoints": [
-    "static/css/main.fe597690.css",
+    "static/css/main.56748883.css",
     "static/js/main.12f7b448.js"
   ]
 }
